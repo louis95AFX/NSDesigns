@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Everyday Wear | Noxysimhle Designs</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="everyday.css">
+</head>
+<body>
+
+    <nav class="sub-nav">
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> BACK</a>
+    
+        <div class="logo-wrapper">
+            <img src="logo.jpeg" alt="Noxysimhle Logo" class="nav-logo-img">
+            <div class="logo">NOXYSIMHLE <span>EVERYDAY</span></div>
+        </div>
+    
+        <div class="cart-icon">
+            <i class="fas fa-bag-shopping"></i>
+            <span id="cart-count">0</span>
+        </div>
+    </nav>
+
+<header class="category-header">
+    <h1>Everyday Sets</h1>
+    <p>Effortless coordination for the modern woman's daily life.</p>
+</header>
+
+<!-- <div class="filter-container">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="linen">Linen</button>
+    <button class="filter-btn" data-filter="knit">Knits</button>
+    <button class="filter-btn" data-filter="lounge">Loungewear</button>
+</div> -->
+
+<main class="product-grid" id="product-grid">
+
+    <div class="product-card" data-category="linen">
+        <div class="product-image-wrapper">
+            <div class="product-image" style="background-image:url('WhatsApp\ Image\ 2026-03-04\ at\ 8.07.45\ PM\ \(1\).jpeg')">
+                <span class="tag">New Arrival</span>
+                <div class="image-overlay">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+            </div>
+        </div>
+        <div class="product-info">
+            <span class="category-label">Linen Collection</span>
+            <h3>The Sahara Linen Set</h3>
+            <p class="price">R 850.00</p>
+            <button class="add-to-cart-btn">Add to Bag <i class="fas fa-plus"></i></button>
+        </div>
+    </div>
+
+    <div class="product-card" data-category="knit">
+        <div class="product-image-wrapper">
+            <div class="product-image" style="background-image:url('7.jpeg')">
+                <div class="image-overlay">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+            </div>
+        </div>
+        <div class="product-info">
+            <span class="category-label">Knitwear</span>
+            <h3>Cloud Knit 2-Piece</h3>
+            <p class="price">R 1,100.00</p>
+            <button class="add-to-cart-btn">Add to Bag <i class="fas fa-plus"></i></button>
+        </div>
+    </div>
+
+    <div class="product-card" data-category="lounge">
+        <div class="product-image-wrapper">
+            <div class="product-image" style="background-image:url('13.jpeg')">
+                <div class="image-overlay">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+            </div>
+        </div>
+        <div class="product-info">
+            <span class="category-label">Lounge</span>
+            <h3>Weekend Ribbed Set</h3>
+            <p class="price">R 750.00</p>
+            <button class="add-to-cart-btn">Add to Bag <i class="fas fa-plus"></i></button>
+        </div>
+    </div>
+
+</main>
+
+<footer>
+    <div class="footer-content">
+        <p>Inquiries: 071 105 3181</p>
+        <p>boutique@noxysimhledesigns.co.za</p>
+        <div class="socials">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-facebook-f"></i>
+        </div>
+    </div>
+</footer>
+<div class="cart-drawer" id="cart-drawer">
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-content">
+        <div class="cart-header">
+            <h2>Your Bag</h2>
+            <button class="close-cart" id="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        
+        <div class="cart-body" id="cart-items">
+            <p class="empty-msg">Your bag is currently empty.</p>
+        </div>
+
+        <div class="cart-footer">
+            <div class="subtotal">
+                <span>Subtotal</span>
+                <span id="cart-subtotal">R 0.00</span>
+            </div>
+            <button class="checkout-btn">Checkout Now</button>
+        </div>
+    </div>
+</div>
+<script src="everyday.js"></script>
+<script>
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const products = document.querySelectorAll('.product-card');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            products.forEach(product => {
+                if (filterValue === 'all' || product.getAttribute('data-category') === filterValue) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

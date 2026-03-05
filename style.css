@@ -1,0 +1,392 @@
+/* --- UPDATED ROOT VARIABLES WITH YOUR BRAND PINK --- */
+:root {
+    /* Main brand colors */
+    --pink: #ff1493;  /* VIBRANT PINK FROM YOUR LOGO */
+    --gold: #ff1493;  /* Set primary accent to match for a strong brand identity */
+    
+    /* Neutral colors for structure */
+    --dark: #1a1a1a;  /* Rich black for typography */
+    --gray: #f9f9f9;  /* Light gray for background sections */
+    --white: #ffffff; /* Clean white background */
+    
+    /* Animation settings */
+    --transition: 0.3s ease-in-out; /* Smooth transition time */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
+    overflow-x: hidden;
+}
+
+/* --- NAVIGATION --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    font-weight: 300;
+    color: var(--gold);
+    margin-left: 5px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 400;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    height: 90vh;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=1500');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 35px;
+    background: var(--gold);
+    color: var(--white);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.8rem;
+    transition: var(--transition);
+    border: 1px solid var(--gold);
+}
+
+.btn:hover {
+    background: transparent;
+    border-color: var(--white);
+}
+
+/* --- COLLECTIONS GRID --- */
+.categories {
+    padding: 80px 8%;
+    text-align: center;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    text-align: center;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.card-img {
+    height: 450px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 15px;
+    border-radius: 2px;
+}
+
+.card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* --- ABOUT SECTION --- */
+.about {
+    padding: 100px 15%;
+    background: var(--gray);
+    text-align: center;
+}
+
+.about h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+}
+
+.about p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* --- FEATURED SECTION --- */
+.featured {
+    position: relative;
+    height: 70vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+/* Video Styling */
+.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -2;
+}
+
+/* Dark Overlay */
+.video-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+.featured h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+/* --- FOOTER --- */
+footer {
+    padding: 80px 8% 40px;
+    background: #111;
+    color: var(--white);
+    text-align: center;
+}
+
+.footer-content h2 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    margin: 30px 0;
+}
+
+.contact-info p {
+    margin: 10px 0;
+    font-size: 0.9rem;
+}
+
+.contact-info i {
+    margin-right: 10px;
+    color: var(--pink);
+}
+
+.socials {
+    margin-bottom: 40px;
+}
+
+.socials a {
+    font-size: 1.5rem;
+    margin: 0 15px;
+    color: var(--white);
+    transition: var(--transition);
+}
+
+.socials a:hover {
+    color: var(--pink);
+}
+
+.copyright {
+    font-size: 0.75rem;
+    opacity: 0.5;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+}
+
+/* --- INTERACTIVE ELEMENTS --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #25D366;
+    color: white;
+    font-size: 1.8rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1) rotate(10deg);
+}
+
+/* --- ANIMATIONS --- */
+.fade-in {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    nav {
+        padding: 15px 5%;
+    }
+    .nav-links {
+        display: none; /* In a real site, you'd add a toggle for the burger menu here */
+    }
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    .about {
+        padding: 60px 8%;
+    }
+}
+.card-link {
+    text-decoration: none; /* Removes the underline */
+    color: inherit;        /* Keeps the text black/dark as per your design */
+    display: block;        /* Ensures the whole area is clickable */
+}
+
+/* Optional: Add a slight zoom effect when hovering over the link */
+.card-link:hover .card-img {
+    filter: brightness(0.9);
+    transition: 0.3s;
+}
+.card-link {
+    text-decoration: none; /* Removes the underline */
+    color: inherit;        /* Keeps the text black/dark as per your design */
+    display: block;        /* Ensures the whole area is clickable */
+}
+
+/* Optional: Add a slight zoom effect when hovering over the link */
+.card-link:hover .card-img {
+    filter: brightness(0.9);
+    transition: 0.3s;
+}
+/* Container to hold both image and text */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Space between logo and name */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* The actual Logo Image */
+.nav-logo-img {
+    height: 50px; /* Adjust this to make the logo larger or smaller */
+    width: auto;
+    object-fit: contain;
+}
+
+/* The Brand Text */
+.logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    line-height: 1;
+    color: var(--black);
+    text-transform: uppercase;
+}
+
+.logo-text span {
+    display: block; /* Puts 'DESIGNS' on a new line for a boutique look */
+    font-size: 0.7rem;
+    color: var(--pink);
+    letter-spacing: 4px;
+    font-weight: 400;
+    margin-top: 2px;
+}
+
+/* Mobile Adjustment */
+@media screen and (max-width: 768px) {
+    .nav-logo-img {
+        height: 40px;
+    }
+    .logo-text {
+        font-size: 1.1rem;
+    }
+}

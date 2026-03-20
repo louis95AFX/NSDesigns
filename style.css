@@ -390,3 +390,76 @@ footer {
         font-size: 1.1rem;
     }
 }
+
+/* This forces the four items into one row */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
+    gap: 20px;                             /* Space between the cards */
+    padding: 20px;
+    max-width: 1200px;                     /* Keeps it from getting too wide */
+    margin: 0 auto;                        /* Centers the grid on the page */
+}
+
+/* Ensure images don't break the layout */
+.card-img {
+    width: 100%;
+    height: 300px;                         /* Adjust height as needed */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Responsive: Stack them on mobile devices */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr;           /* 1 per row on phones */
+    }
+}
+/* The container for each set */
+.card {
+    background: #fff;
+    border: 1px solid #e0e0e0; /* Subtle, elegant border */
+    border-radius: 8px;        /* Slightly rounded corners for a modern look */
+    overflow: hidden;          /* Keeps the image inside the border radius */
+    transition: all 0.3s ease; /* Makes the "hover" animation smooth */
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+/* The cool hover effect */
+.card:hover {
+    transform: translateY(-10px); /* Lifts the card up slightly */
+    border-color: #d4af37;        /* Changes border to Gold on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Adds a soft luxury shadow */
+}
+
+/* Styling the text inside the cards */
+.card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 15px;
+    color: #333;
+}
+
+/* Ensure the links don't have underlines */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Optional: Add a thin vertical line between items in the grid */
+/* Only visible on desktop (4 columns) */
+@media (min-width: 769px) {
+    .card-link:not(:last-child) {
+        border-right: 1px solid #f0f0f0;
+        padding-right: 10px;
+    }
+}

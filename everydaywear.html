@@ -119,8 +119,7 @@
                 <span>Subtotal</span>
                 <span id="cart-subtotal">R 0.00</span>
             </div>
-            <button class="checkout-btn">Checkout Now</button>
-        </div>
+            <button class="checkout-btn" id="payfast-checkout">Checkout Now</button>        </div>
     </div>
 </div>
 <script src="everyday.js"></script>
@@ -145,6 +144,44 @@
             });
         });
     });
+
+    document.getElementById('payfast-checkout').addEventListener('click', function() {
+    // 1. Get the subtotal
+    const subtotalText = document.getElementById('cart-subtotal').innerText;
+    
+    // 2. Get the list of items (assuming your cart-items container has the product names)
+    // We'll scrape the text from the cart-body or use the product names
+    const cartItems = document.querySelectorAll('.cart-item-info h4'); // Adjust selector based on your everyday.js structure
+    let itemDetails = "";
+    
+    if (cartItems.length > 0) {
+        cartItems.forEach((item, index) => {
+            itemDetails += `${index + 1}. ${item.innerText}\n`;
+        });
+    } else {
+        // Fallback if we can't scrape specific items easily
+        itemDetails = "Items from Everyday Sets collection";
+    }
+
+    const amount = subtotalText.trim();
+
+    if (amount === "R 0.00" || amount === "0") {
+        alert("Your bag is empty!");
+        return;
+    }
+
+    // 3. Define WhatsApp Parameters
+    const phoneNumber = "27711053181"; // Your number from the footer: 071 105 3181
+    const message = `Hello Noxysimhle Designs! I would like to place an order:%0A%0A` +
+                    `*Order Details:*%0A${encodeURIComponent(itemDetails)}%0A` +
+                    `*Total Amount:* ${encodeURIComponent(amount)}%0A%0A` +
+                    `Please let me know how to proceed with payment.`;
+
+    // 4. Redirect to WhatsApp
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+    
+    window.open(whatsappUrl, '_blank');
+});
 </script>
 
 </body>

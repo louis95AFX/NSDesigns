@@ -664,3 +664,78 @@ footer {
 .add-to-cart-btn i {
     font-size: 0.7rem;
 }
+
+
+/* Quick View Modal Styles */
+.qv-modal {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+}
+
+.qv-modal-content {
+    background-color: #fff;
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    padding: 0;
+    animation: modalFadeIn 0.4s ease;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.qv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.qv-image-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.qv-info-side {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.qv-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 20px 0;
+    line-height: 1.6;
+}
+
+.qv-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: 0.3s;
+}
+
+.qv-close:hover { color: var(--brand-pink); }
+
+/* Mobile Modal Adjustments */
+@media (max-width: 768px) {
+    .qv-grid { grid-template-columns: 1fr; }
+    .qv-info-side { padding: 25px; }
+    .qv-image-side { height: 300px; }
+}

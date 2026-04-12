@@ -94,3 +94,61 @@ function updateCartUI() {
     const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     cartSubtotalElement.innerText = `R ${subtotal.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
 }
+
+const modal = document.getElementById('quick-view-modal');
+const closeBtn = document.querySelector('.qv-close');
+
+// Open Modal logic
+document.querySelectorAll('.quick-view-btn').forEach(button => {
+    button.addEventListener('click', (e) => {
+        const card = e.target.closest('.product-card');
+        
+        // Extract data
+        const title = card.querySelector('h3').innerText;
+        const price = card.querySelector('.price').innerText;
+        const category = card.querySelector('.category-label').innerText;
+        // Get background image URL and clean it up
+        const imgStyle = card.querySelector('.product-image').style.backgroundImage;
+        const imgUrl = imgStyle.slice(5, -2).replace(/"/g, "");
+
+        // Inject into Modal
+        document.getElementById('qv-title').innerText = title;
+        document.getElementById('qv-price').innerText = price;
+        document.getElementById('qv-category').innerText = category;
+        document.getElementById('qv-img').src = imgUrl;
+
+        modal.style.display = 'flex';
+    });
+});
+
+// Close Modal logic
+closeBtn.onclick = () => modal.style.display = 'none';
+window.onclick = (event) => {
+    if (event.target == modal) modal.style.display = 'none';
+};
+
+// Quick View Add to Cart
+// Quick View Add to Cart
+document.getElementById('qv-add-btn').addEventListener('click', () => {
+    // 1. Extract data from the modal elements
+    const title = document.getElementById('qv-title').innerText;
+    const priceText = document.getElementById('qv-price').innerText;
+    const imgUrl = document.getElementById('qv-img').src;
+
+    // 2. Create the product object to match your addToCart requirements
+    const product = {
+        id: title.toLowerCase().replace(/\s/g, '-'),
+        name: title,
+        // Convert "R 850.00" to 850.00
+        price: parseFloat(priceText.replace(/[^\d.]/g, '')),
+        image: imgUrl,
+        quantity: 1
+    };
+    
+    // 3. Call your core function
+    addToCart(product);
+    
+    // 4. Close modal and give feedback
+    modal.style.display = 'none';
+    console.log(`Added ${title} to cart from Quick View`);
+});

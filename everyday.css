@@ -739,3 +739,37 @@ footer {
     .qv-info-side { padding: 25px; }
     .qv-image-side { height: 300px; }
 }
+/* Purchase Options Dropdown */
+.purchase-options {
+    margin-bottom: 15px;
+}
+
+.purchase-options label {
+    display: block;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.variant-select {
+    width: 100%;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    border: 1px solid #eeeeee;
+    background-color: #fff;
+    cursor: pointer;
+    outline: none;
+    transition: var(--transition);
+}
+
+.variant-select:focus {
+    border-color: var(--brand-pink);
+}
+
+/* Quick View specific adjustments */
+.qv-info-side .purchase-options {
+    margin: 20px 0;
+}
